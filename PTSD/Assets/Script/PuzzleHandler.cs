@@ -13,6 +13,10 @@ public class PuzzleHandler : MonoBehaviour
     public AudioSource mySfx;
     public AudioClip downSfx;
     public AudioClip upSfx;
+    public AudioClip tts1;
+    public AudioClip tts2;
+    public AudioClip tts3;
+    public AudioClip tts4;
 
 
     // Start is called before the first frame update
