@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonClickEvent : MonoBehaviour
+public class Intro_ButtonClickEvent : MonoBehaviour
 {
     public Image fade;
 
@@ -77,7 +77,7 @@ public class ButtonClickEvent : MonoBehaviour
         Color alpha = fade.color;
         while (alpha.a < 1f)
         {
-            time += 0.002f;
+            time += 0.003f;
             alpha.a = Mathf.Lerp(0, 1, time);
             fade.color = alpha;
             yield return null;
