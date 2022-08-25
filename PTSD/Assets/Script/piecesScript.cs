@@ -13,6 +13,7 @@ public class piecesScript : MonoBehaviour
     public bool InRightPosition;
     public bool Selected;
 
+    private GameObject CamObject;
 
     static List<string> RightPositionObject;
 
@@ -20,6 +21,8 @@ public class piecesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        CamObject = GameObject.Find("Main Camera");
         RightPositionObject = new();
 
         RightPosition = transform.position;
@@ -62,19 +65,18 @@ public class piecesScript : MonoBehaviour
         switch (num)
         {
             case 1:
-
+                CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event0");
                 break;
 
             case 20:
-
+                CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event1");
                 break;
 
             case 40:
-
+                CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event2");
                 break;
-
             case 60:
-
+                CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event3");
                 break;
 
             case 80:
