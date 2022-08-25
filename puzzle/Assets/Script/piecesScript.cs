@@ -31,9 +31,9 @@ public class piecesScript : MonoBehaviour
         for(int i = 1; i < 81; i++)
         {
             if(i == Random.Range(0, 81))
-               transform.position = new Vector3(Random.Range(-8.06f, -4.14f), Random.Range(3.87f, -4f));
+               transform.position = new Vector3(Random.Range(-8.06f, -4.14f), Random.Range(2.87f, -4f));
             else
-                transform.position = new Vector3(Random.Range(3.84f, 7.88f), Random.Range(3.87f, -4f));
+                transform.position = new Vector3(Random.Range(3.84f, 7.88f), Random.Range(2.87f, -4f));
         }
     }
 
