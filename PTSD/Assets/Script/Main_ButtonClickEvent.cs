@@ -39,12 +39,22 @@ public class Main_ButtonClickEvent : MonoBehaviour
         }
     }
 
+    public void OnClickReplayExitButton()
+    {
+        Memory.SetActive(false);
+    }
+
     public void OnClickReplayButton()
     {
         if (Memory.activeSelf == true) Memory.SetActive(false);
         else
         {
-            GetComponent<SortingGroup>().sortingOrder = 0;
+            for (int i = 0; i < obj.Length; i++)
+            {
+                obj[i].GetComponent<piecesScript>().Selected = false;
+                obj[i].GetComponent<SortingGroup>().sortingOrder = 0;
+            }
+
             Memory.SetActive(true);
         }
     }
