@@ -10,6 +10,11 @@ public class PuzzleHandler : MonoBehaviour
 
     GameObject obj;
 
+    public AudioSource mySfx;
+    public AudioClip downSfx;
+    public AudioClip upSfx;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,7 @@ public class PuzzleHandler : MonoBehaviour
                     {
                         SelectedPiece = hit.transform.gameObject;
                         SelectedPiece.GetComponent<piecesScript>().Selected = true;
+                        DownSound();
                         SelectedPiece.GetComponent<SortingGroup>().sortingOrder = OIL;
                         OIL++;
                     }
@@ -40,6 +46,7 @@ public class PuzzleHandler : MonoBehaviour
                 if (SelectedPiece != null)
                 {
                     SelectedPiece.GetComponent<piecesScript>().Selected = false;
+                    UpSound();
                     SelectedPiece = null;
                 }
             }
@@ -51,5 +58,15 @@ public class PuzzleHandler : MonoBehaviour
                 SelectedPiece.transform.position = new Vector3(MousePoint.x, MousePoint.y, 0);
             }
         }        
+    }
+
+    public void DownSound()
+    {
+        mySfx.PlayOneShot(downSfx);
+    }
+
+    public void UpSound()
+    {
+        mySfx.PlayOneShot(upSfx);
     }
 }
