@@ -11,10 +11,11 @@ public class Main_ButtonClickEvent : MonoBehaviour
 
     public Image fade;
 
-
+    GameObject[] obj;
     // Start is called before the first frame update
     void Start()
     {
+        obj = GameObject.FindGameObjectsWithTag("Puzzle");
         Memory.SetActive(false);
         fade.gameObject.SetActive(false);
     }
@@ -26,7 +27,16 @@ public class Main_ButtonClickEvent : MonoBehaviour
 
     public void OnClickReFreshButton()
     {
-        Debug.Log("Refresh");
+        for (int i = 0; i < obj.Length; i++)
+        {
+            if (!obj[i].transform.GetComponent<piecesScript>().InRightPosition)
+            {
+                if (i == Random.Range(0, 81))
+                    obj[i].transform.position = new Vector3(Random.Range(-8.06f, -4.14f), Random.Range(2.87f, -4f));
+                else
+                    obj[i].transform.position = new Vector3(Random.Range(3.84f, 7.88f), Random.Range(2.87f, -4f));
+            }
+        }
     }
 
     public void OnClickReplayButton()
@@ -40,7 +50,13 @@ public class Main_ButtonClickEvent : MonoBehaviour
     }
 
     IEnumerator FadeInFlow()
-    {
+    {        
+        for (int i = 0; i < obj.Length; i++)
+        {
+            obj[i].GetComponent<piecesScript>().Selected = false;
+            obj[i].GetComponent<SortingGroup>().sortingOrder = 0;
+        }
+
         fade.gameObject.SetActive(true);
         float time = 0f;
         Color alpha = fade.color;
