@@ -4,14 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonClickEvent : MonoBehaviour
+public class Intro_ButtonClickEvent : MonoBehaviour
 {
+    public Image fade;
+
     public GameObject HowPlay;
     public Text play_txt;
     public Text how_txt1;
     public Text how_txt2;
     public Text how_txt3;
     public Text exit_txt;
+
+    void Start()
+    {
+        fade.gameObject.SetActive(false);
+    }
+
 
     public void PlayTextColorChange()
     {
@@ -44,16 +52,37 @@ public class ButtonClickEvent : MonoBehaviour
 
     public void OnClickPlayButton()
     {
-        SceneManager.LoadScene("Main");
+        StartCoroutine(FadeInFlow());
     }    
     
     public void OnClickHowButton()
     {
         HowPlay.SetActive(true);
+    }     
+    
+    public void HowToPlayDownButton()
+    {
+        HowPlay.SetActive(false);
     }    
     
     public void OnClickExitButton()
     {
         Application.Quit();
+    }
+
+    IEnumerator FadeInFlow()
+    {
+        fade.gameObject.SetActive(true);
+        float time = 0f;
+        Color alpha = fade.color;
+        while (alpha.a < 1f)
+        {
+            time += 0.003f;
+            alpha.a = Mathf.Lerp(0, 1, time);
+            fade.color = alpha;
+            yield return null;
+        }
+        SceneManager.LoadScene("Main");
+        yield return null;
     }
 }
