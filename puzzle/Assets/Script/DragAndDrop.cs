@@ -7,6 +7,7 @@ public class DragAndDrop : MonoBehaviour
 {
     public GameObject SelectedPiece;
     int OIL = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,20 +22,20 @@ public class DragAndDrop : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.transform.CompareTag("Puzzle"))
             {
-                //if (!hit.transform.GetComponent<piecesScript>().InRightPosition)
-                //{
-                SelectedPiece = hit.transform.gameObject;
-                //    SelectedPiece.GetComponent<piecesScript>().Selected = true;
-                //    SelectedPiece.GetComponent<SortingGroup>().sortingOrder = OIL;
-                //    OIL++;
-                //}
+                if (!hit.transform.GetComponent<piecesScript>().InRightPosition)
+                {
+                    SelectedPiece = hit.transform.gameObject;
+                    SelectedPiece.GetComponent<piecesScript>().Selected = true;
+                    SelectedPiece.GetComponent<SortingGroup>().sortingOrder = OIL;
+                    OIL++;
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
             if (SelectedPiece != null)
             {
-                //SelectedPiece.GetComponent<piecesScript>().Selected = false;
+                SelectedPiece.GetComponent<piecesScript>().Selected = false;
                 SelectedPiece = null;
             }
         }
