@@ -8,7 +8,7 @@ public class PuzzleHandler : MonoBehaviour
     public GameObject SelectedPiece;
     int OIL = 1;
 
-    GameObject obj;
+    static GameObject obj;
 
     // Start is called before the first frame update
     void Start()
