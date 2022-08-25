@@ -8,7 +8,7 @@ public class PuzzleHandler : MonoBehaviour
     public GameObject SelectedPiece;
     int OIL = 1;
 
-    GameObject obj;
+    static GameObject obj;
 
     public AudioSource mySfx;
     public AudioClip downSfx;

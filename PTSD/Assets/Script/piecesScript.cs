@@ -17,13 +17,20 @@ public class piecesScript : MonoBehaviour
 
     static List<string> RightPositionObject;
 
+    string[] BeforePuzzle;
     static string SceneName;
+    static bool SceneMoving;
 
     // Start is called before the first frame update
     void Start()
     {
         CamObject = GameObject.Find("Main Camera");
         RightPositionObject = new();
+
+        if (!string.IsNullOrEmpty(PlayerPrefs.GetString("Puzzle")))
+        {
+            RightPositionObject.AddRange(PlayerPrefs.GetString("Puzzle").Split(","));
+        }
 
         RightPosition = transform.position;
         for (int i = 1; i < 80; i++)
@@ -32,6 +39,15 @@ public class piecesScript : MonoBehaviour
                 transform.position = new Vector3(Random.Range(-8.06f, -4.14f), Random.Range(2.87f, -4f));
             else
                 transform.position = new Vector3(Random.Range(3.84f, 7.88f), Random.Range(2.87f, -4f));
+
+            if (RightPositionObject != null)
+            {
+                for (int j = 0; j < RightPositionObject.Count; j++)
+                {
+                    if (transform.gameObject.name == RightPositionObject[j])
+                        transform.position = RightPosition;
+                }
+            }
         }
     }
 
@@ -47,6 +63,7 @@ public class piecesScript : MonoBehaviour
                     transform.position = RightPosition;
                     InRightPosition = true;
                     GetComponent<SortingGroup>().sortingOrder = 0;
+                    SceneMoving = false;
                 }
                 else
                 {
@@ -62,30 +79,50 @@ public class piecesScript : MonoBehaviour
 
     void LoadEventScene(int num)
     {
+        string objName = string.Empty;
         switch (num)
         {
             case 1: //테스트용
-                SceneName = "Event1";
+                for (int i = 0; i < num; i++)
+                {
+                    if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
+                    else objName += "," + RightPositionObject[i];
+                }
+                PlayerPrefs.SetString("Puzzle", objName);
+
                 CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event0");
+                SceneName = "Event1";
+                StartCoroutine(FadeInFlow());
                 break;
 
             case 20:
+                for (int i = 0; i < num; i++)
+                {
+                    if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
+                    else objName += "," + RightPositionObject[i];
+                }
+                PlayerPrefs.SetString("Puzzle", objName);
+
                 SceneName = "Event1";
                 CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event1");
+                StartCoroutine(FadeInFlow());
                 break;
 
             case 40:
                 SceneName = "Event2";
                 CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event2");
+                StartCoroutine(FadeInFlow());
                 break;
 
             case 60:
                 SceneName = "Event3";
                 CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event3");
+                StartCoroutine(FadeInFlow());
                 break;
 
             case 80:
                 SceneName = "Event4";
+                StartCoroutine(FadeInFlow());
                 break;
         }
     }
@@ -109,7 +146,8 @@ public class piecesScript : MonoBehaviour
             fade.color = alpha;
             yield return null;
         }
-        SceneManager.LoadScene("Main");
+        PlayerPrefs.SetString("EventScene", SceneName);
+        SceneManager.LoadScene(SceneName);
         yield return null;
     }
 }

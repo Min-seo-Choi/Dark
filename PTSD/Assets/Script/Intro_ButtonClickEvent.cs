@@ -17,6 +17,8 @@ public class Intro_ButtonClickEvent : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetString("EventScene", null);
+        PlayerPrefs.SetString("Puzzle", null);
         fade.gameObject.SetActive(false);
     }
 
