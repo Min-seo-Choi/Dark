@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Event1.unity
     guid: cd28454e8170a42409690622f76e48ed
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Event2.unity
     guid: 92d1fa8781ca16f4296d37e0be084ad7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Event3.unity
     guid: 33447c502a0a02c4faa6037864617621
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Event4.unity
     guid: 6151bda1a29a75448920d63406c12cf5
   m_configObjects: {}

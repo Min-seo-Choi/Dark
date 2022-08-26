@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
+    void start()
+    {
+
+    }
+
     public void OnClick()
     {
         SceneManager.LoadScene("Main");
