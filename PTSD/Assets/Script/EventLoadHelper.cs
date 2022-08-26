@@ -34,14 +34,20 @@ public class EventLoadHelper : MonoBehaviour
                 break;
                 
             case "Event2":
+                event1.gameObject.SetActive(false);
                 event2.gameObject.SetActive(false);
                 break;   
 
             case "Event3":
+                event1.gameObject.SetActive(false);
+                event2.gameObject.SetActive(false);
                 event3.gameObject.SetActive(false);
                 break;  
                 
             case "Event4":
+                event1.gameObject.SetActive(false);
+                event2.gameObject.SetActive(false);
+                event3.gameObject.SetActive(false);
                 event4.gameObject.SetActive(false);
                 break;
         }
@@ -55,13 +61,13 @@ public class EventLoadHelper : MonoBehaviour
     
     public void OnClickEventScene2()
     {
-        SceneName = "Even21";
+        SceneName = "Event2";
         StartCoroutine(FadeInFlow());
     }    
     
     public void OnClickEventScene3()
     {
-        SceneName = "Even31";
+        SceneName = "Event3";
         StartCoroutine(FadeInFlow());
     }    
     

@@ -82,20 +82,13 @@ public class piecesScript : MonoBehaviour
         string objName = string.Empty;
         switch (num)
         {
-            case 1: //테스트용
-                for (int i = 0; i < num; i++)
-                {
-                    if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
-                    else objName += "," + RightPositionObject[i];
-                }
-                PlayerPrefs.SetString("Puzzle", objName);
+            //case 1: //테스트용
+            //    CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event0");
+            //    SceneName = "Event1";
+            //    StartCoroutine(FadeInFlow());
+            //    break;
 
-                CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event0");
-                SceneName = "Event1";
-                StartCoroutine(FadeInFlow());
-                break;
-
-            case 20:
+            case 2:
                 for (int i = 0; i < num; i++)
                 {
                     if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
@@ -108,19 +101,40 @@ public class piecesScript : MonoBehaviour
                 StartCoroutine(FadeInFlow());
                 break;
 
-            case 40:
+            case 4:
+                for (int i = 0; i < num; i++)
+                {
+                    if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
+                    else objName += "," + RightPositionObject[i];
+                }
+                PlayerPrefs.SetString("Puzzle", objName);
+
                 SceneName = "Event2";
                 CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event2");
                 StartCoroutine(FadeInFlow());
                 break;
 
-            case 60:
+            case 6:
+                for (int i = 0; i < num; i++)
+                {
+                    if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
+                    else objName += "," + RightPositionObject[i];
+                }
+                PlayerPrefs.SetString("Puzzle", objName);
+
                 SceneName = "Event3";
                 CamObject.GetComponent<PlayMusicOperator>().PlayBGM("event3");
                 StartCoroutine(FadeInFlow());
                 break;
 
-            case 80:
+            case 8:
+                for (int i = 0; i < num; i++)
+                {
+                    if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
+                    else objName += "," + RightPositionObject[i];
+                }
+                PlayerPrefs.SetString("Puzzle", objName);
+
                 SceneName = "Event4";
                 StartCoroutine(FadeInFlow());
                 break;
