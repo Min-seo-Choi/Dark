@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Test : MonoBehaviour
 {
     public Image fade;
+    public Canvas canvas;
 
     void start()
     {
@@ -15,23 +16,9 @@ public class Test : MonoBehaviour
 
     public void OnClick()
     {
+        canvas.gameObject.SetActive(false);
         StartCoroutine(FadeInFlow());
-    }    
-    
-    public void OnClick1()
-    {
-        StartCoroutine(FadeInFlow());
-    }    
-    
-    public void OnClick2()
-    {
-        StartCoroutine(FadeInFlow());
-    }    
-    
-    public void OnClick3()
-    {
-        StartCoroutine(FadeInFlow());
-    }
+    } 
 
     IEnumerator FadeInFlow()
     {
@@ -40,7 +27,7 @@ public class Test : MonoBehaviour
         Color alpha = fade.color;
         while (alpha.a < 1f)
         {
-            time += 0.003f;
+            time += 0.01f;
             alpha.a = Mathf.Lerp(0, 1, time);
             fade.color = alpha;
             yield return null;

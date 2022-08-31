@@ -79,7 +79,7 @@ public class Intro_ButtonClickEvent : MonoBehaviour
         Color alpha = fade.color;
         while (alpha.a < 1f)
         {
-            time += 0.003f;
+            time += 0.01f;
             alpha.a = Mathf.Lerp(0, 1, time);
             fade.color = alpha;
             yield return null;

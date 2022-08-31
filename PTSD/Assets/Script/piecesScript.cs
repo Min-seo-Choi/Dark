@@ -88,7 +88,7 @@ public class piecesScript : MonoBehaviour
             //    StartCoroutine(FadeInFlow());
             //    break;
 
-            case 2:
+            case 20:
                 for (int i = 0; i < num; i++)
                 {
                     if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
@@ -101,7 +101,7 @@ public class piecesScript : MonoBehaviour
                 StartCoroutine(FadeInFlow());
                 break;
 
-            case 4:
+            case 40:
                 for (int i = 0; i < num; i++)
                 {
                     if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
@@ -114,7 +114,7 @@ public class piecesScript : MonoBehaviour
                 StartCoroutine(FadeInFlow());
                 break;
 
-            case 6:
+            case 60:
                 for (int i = 0; i < num; i++)
                 {
                     if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
@@ -127,7 +127,7 @@ public class piecesScript : MonoBehaviour
                 StartCoroutine(FadeInFlow());
                 break;
 
-            case 8:
+            case 80:
                 for (int i = 0; i < num; i++)
                 {
                     if (string.IsNullOrEmpty(objName)) objName = RightPositionObject[i];
@@ -155,7 +155,7 @@ public class piecesScript : MonoBehaviour
         Color alpha = fade.color;
         while (alpha.a < 1f)
         {
-            time += 0.003f;
+            time += 0.01f;
             alpha.a = Mathf.Lerp(0, 1, time);
             fade.color = alpha;
             yield return null;
